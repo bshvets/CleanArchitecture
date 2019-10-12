@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="TagHelpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IdealWay.Application\IdealWay.Application.csproj" />
+    <ProjectReference Include="..\IdealWay.Common\IdealWay.Common.csproj" />
+    <ProjectReference Include="..\IdealWay.Domain\IdealWay.Domain.csproj" />
+    <ProjectReference Include="..\IdealWay.Infrastructure\IdealWay.Infrastructure.csproj" />
+    <ProjectReference Include="..\IdealWay.Persistence\IdealWay.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
