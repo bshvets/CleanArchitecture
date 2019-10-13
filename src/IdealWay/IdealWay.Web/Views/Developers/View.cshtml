@@ -1,0 +1,58 @@
+﻿@model DeveloperListViewModel
+
+@{
+    ViewData["Title"] = "Developers";
+}
+
+<h1>Developers in "The Best" Company</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Developers[0].DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Developers[0].Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Developers[0].PrimaryLanguage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Developers[0].YearsOfExperience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Developers[0].Gender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Developers) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimaryLanguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsOfExperience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
