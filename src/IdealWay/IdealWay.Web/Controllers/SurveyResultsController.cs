@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdealWay.Application.SalaryStatisticsUseCases.Queries;
+using IdealWay.Web.Presenters;
+using IdealWay.Web.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,82 +15,29 @@ namespace IdealWay.Web.Controllers
         // GET: SurveyResults
         public ActionResult Index()
         {
-            return View();
+            return View(new SurveyStatisticViewModel());
         }
 
-        // GET: SurveyResults/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: SurveyResults/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SurveyResults/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Generate(SurveyStatisticViewModel surveyStatistic, 
+            [FromServices] IGetAverageByGenderQuery getAverageByGenderQuery,
+            [FromServices] IGetAverageByLevelQuery getAverageByLevelQuery,
+            [FromServices] SurveyStatisticsPresenter surveyStatisticsPresenter)
         {
-            try
+            if (surveyStatistic.AverageByLevel.HasValue)
             {
-                // TODO: Add insert logic here
+                if (surveyStatistic.AverageByLevel == true)
+                {
+                    await getAverageByLevelQuery.ExecuteAsync(surveyStatisticsPresenter);
+                }
+                else
+                {
+                    await getAverageByGenderQuery.ExecuteAsync(surveyStatisticsPresenter);
+                }
 
-                return RedirectToAction(nameof(Index));
+                surveyStatistic.Data = surveyStatisticsPresenter.ContentResult;
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SurveyResults/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: SurveyResults/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SurveyResults/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: SurveyResults/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return View(nameof(Index), surveyStatistic);
         }
     }
 }

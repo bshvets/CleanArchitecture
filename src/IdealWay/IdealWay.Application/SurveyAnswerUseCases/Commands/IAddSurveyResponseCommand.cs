@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IdealWay.Application.SurveyAnswerUseCases.Commands
 {
-    interface IAddSurveyResponseCommand
+    public interface IAddSurveyResponseCommand
     {
     }
 }

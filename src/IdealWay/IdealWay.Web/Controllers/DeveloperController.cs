@@ -11,97 +11,19 @@ namespace IdealWay.Web.Controllers
 {
     public class DeveloperController : Controller
     {
-        private readonly IGetAllDevelopersQuery _getAllDevelopersQuery;
-        private readonly DeveloperListPresenter _developerListPresenter;
+        private readonly IGetAllDevelopersQuery _getAllDevelopersQuery;        
 
-        public DeveloperController(IGetAllDevelopersQuery getAllDevelopersQuery, 
-            DeveloperListPresenter developerListPresenter)
+        public DeveloperController(IGetAllDevelopersQuery getAllDevelopersQuery)
         {
             _getAllDevelopersQuery = getAllDevelopersQuery;
-            _developerListPresenter = developerListPresenter;
         }
 
         // GET: Developer
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index([FromServices] DeveloperListPresenter developerListPresenter)
         {
-            await _getAllDevelopersQuery.ExecuteAsync(_developerListPresenter);
+            await _getAllDevelopersQuery.ExecuteAsync(developerListPresenter);
 
-            return View(_developerListPresenter.ContentResult);
-        }
-
-        // GET: Developer/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Developer/Create
-        public ActionResult Create()
-        {
-            return View();
+            return View(developerListPresenter.ContentResult);
         }        
-
-        // POST: Developer/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Developer/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Developer/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Developer/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Developer/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

@@ -13,6 +13,7 @@ namespace IdealWay.Web.Presenters
             services.AddTransient<DeveloperListPresenter>();
             services.AddTransient<ProgrammingLanguageListPresenter>();
             services.AddTransient<SurveyAnswerPresenter>();
+            services.AddTransient<SurveyStatisticsPresenter>();
         }
     }
 }
