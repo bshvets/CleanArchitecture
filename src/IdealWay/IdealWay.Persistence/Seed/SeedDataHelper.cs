@@ -18,16 +18,17 @@ namespace IdealWay.Persistence.Seed
 
         private static void SeedAnswers(List<Developer> developers, ModelBuilder builder)
         {
-            var answers = new List<Answer>();
+            var answers = new List<SurveyAnswer>();
             var i = 1;
+            var random = new Random();
             foreach (var developer in developers)
             {
-                var satisfied = new Random().Next(1, 2) == 2;
+                var satisfied = random.Next(1, 10) % 2 == 0;
                 var yearSalary = 40000 + (int)developer.Level * (satisfied ? 5000 : 3000); 
-                answers.Add(new Answer() { AnswerId = i++, DeveloperId = developer.DeveloperId, Satisfied = satisfied, YearSalary = yearSalary });
+                answers.Add(new SurveyAnswer() { AnswerId = i++, DeveloperId = developer.DeveloperId, Satisfied = satisfied, YearSalary = yearSalary });
             }
 
-            builder.Entity<Answer>().HasData(answers);
+            builder.Entity<SurveyAnswer>().HasData(answers);
         }
 
         private static void SeedProgrammingLanguages(ModelBuilder builder)

@@ -7,11 +7,11 @@ using System.Text;
 
 namespace IdealWay.Persistence.Configuration
 {
-    public class AnswerConfiguration : IEntityTypeConfiguration<Answer>
+    public class SurveyAnswerConfiguration : IEntityTypeConfiguration<SurveyAnswer>
     {
-        public void Configure(EntityTypeBuilder<Answer> builder)
+        public void Configure(EntityTypeBuilder<SurveyAnswer> builder)
         {
-            builder.ToTable("Answer");
+            builder.ToTable("SurveyAnswer");
 
             builder.HasKey(p => p.AnswerId);
 
@@ -24,6 +24,10 @@ namespace IdealWay.Persistence.Configuration
             builder.Property(p => p.Satisfied)
                 .IsRequired()
                 .HasDefaultValue(true);
+
+            builder.HasOne(p => p.Developer)
+                .WithMany(d => d.Answers)
+                .HasForeignKey(a => a.DeveloperId);
         }
     }
 }

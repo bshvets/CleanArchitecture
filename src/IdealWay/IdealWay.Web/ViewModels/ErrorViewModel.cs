@@ -1,6 +1,6 @@
 using System;
 
-namespace IdealWay.Web.Models
+namespace IdealWay.Web.ViewModels
 {
     public class ErrorViewModel
     {

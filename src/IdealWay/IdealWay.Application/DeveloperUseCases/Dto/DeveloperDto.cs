@@ -12,5 +12,6 @@ namespace IdealWay.Application.DeveloperUseCases.Dto
         public string PrimaryLanguage { get; set; }
         public int YearsOfExperience { get; set; }
         public string Gender { get; set; }
+        public string Level { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using IdealWay.Application;
 using IdealWay.Application.DeveloperUseCases.Dto;
+using IdealWay.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,26 @@ namespace IdealWay.Web.Presenters
 {
     public class DeveloperListPresenter : IQueryResponse<List<DeveloperDto>>
     {
-        public DeveloperListPresenter()
-        {
-
-        }
-
         public void Respond(List<DeveloperDto> response)
         {
-            ContentResult = new JsonResult(response);
+            ContentResult = new DeveloperListViewModel()
+            {
+                Count = response.Count,
+                Developers = response
+                .Select(d => 
+                    new DeveloperViewModel()
+                    {
+                        Id = d.DeveloperId,
+                        DisplayName = d.FirstName + " " + d.LastName,
+                        Gender = d.Gender,
+                        Level = d.Level,
+                        PrimaryLanguage = d.PrimaryLanguage,
+                        YearsOfExperience = d.YearsOfExperience
+                    })
+                .ToList()
+            };
         }
 
-        public JsonResult ContentResult { get; set; }
+        public DeveloperListViewModel ContentResult { get; private set; }
     }
 }

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace IdealWay.Domain.Entities
+namespace IdealWay.Application.ProgrammingLanguageUseCases.Dto
 {
-    public class ProgrammingLanguage
+    public class ProgrammingLanguageDto
     {
         public int ProgrammingLanguageId { get; set; }
         public string Name { get; set; }
         public bool IsStronglyTyped { get; set; }
-
-        public ICollection<Developer> Developers { get; private set; } = new List<Developer>();
     }
 }

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IdealWay.Common\IdealWay.Common.csproj" />
     <ProjectReference Include="..\IdealWay.Domain\IdealWay.Domain.csproj" />
   </ItemGroup>

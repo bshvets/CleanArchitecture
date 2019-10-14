@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using IdealWay.Application;
 using IdealWay.Persistence;
 using IdealWay.Web.Helpers;
+using IdealWay.Web.Presenters;
 using IdealWay.WebSupport;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,6 +45,7 @@ namespace IdealWay.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddApplicationServices();
+            services.AddPresenters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

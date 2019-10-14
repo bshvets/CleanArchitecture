@@ -32,12 +32,17 @@ namespace IdealWay.Persistence.Configuration
 
             builder.Property(e => e.Level)
                 .IsRequired()
-                .HasConversion(new EnumToStringConverter<AbilitonLevel>());
+                .HasConversion(new EnumToStringConverter<AbilitonLevel>())
+                .HasMaxLength(20);
 
             builder.Property(e => e.Gender)
                 .IsRequired()
-                .HasConversion(new EnumToStringConverter<Gender>());
+                .HasConversion(new EnumToStringConverter<Gender>())
+                .HasMaxLength(20);
 
+            builder.HasOne(p => p.PrimaryLanguage)
+                .WithMany(d => d.Developers)
+                .HasForeignKey(a => a.PrimaryLanguageId);
         }
     }
 }
