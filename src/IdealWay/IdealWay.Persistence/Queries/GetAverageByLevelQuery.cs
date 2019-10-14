@@ -2,6 +2,7 @@
 using IdealWay.Application;
 using IdealWay.Application.SalaryStatisticsUseCases.Dto;
 using IdealWay.Application.SalaryStatisticsUseCases.Queries;
+using IdealWay.Common;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,14 +15,18 @@ namespace IdealWay.Persistence.Queries
     public class GetAverageByLevelQuery : IGetAverageByLevelQuery
     {
         private readonly IConnectionStringProvider _connectionStringProvider;
+        private readonly IAuditService _auditService;
 
-        public GetAverageByLevelQuery(IConnectionStringProvider connectionStringProvider)
+        public GetAverageByLevelQuery(IConnectionStringProvider connectionStringProvider, IAuditService auditService)
         {
             _connectionStringProvider = connectionStringProvider;
+            _auditService = auditService;
         }
 
         public async Task ExecuteAsync(IQueryResponse<List<LevelAverageDto>> queryResponse)
         {
+            await _auditService.LogAccess(nameof(GetAverageByLevelQuery));
+
             using (var connection = new SqlConnection(_connectionStringProvider.GetConnectionString()))
             {
                 var result = await connection.QueryAsync<LevelAverageDto>(

@@ -6,20 +6,25 @@ using IdealWay.Domain.Entities;
 using System.Linq;
 using IdealWay.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
+using IdealWay.Common;
 
 namespace IdealWay.Application.DeveloperUseCases.Queries.GetAllDevelopers
 {
     public class GetAllDevelopersQuery : IGetAllDevelopersQuery
     {
         private readonly IDevSalaryDbContext _dbContext;
+        private readonly IAuditService _auditService;
 
-        public GetAllDevelopersQuery(IDevSalaryDbContext dbContext)
+        public GetAllDevelopersQuery(IDevSalaryDbContext dbContext, IAuditService auditService)
         {
             _dbContext = dbContext;
+            _auditService = auditService;
         }
 
         public async Task ExecuteAsync(IQueryResponse<List<DeveloperDto>> queryResponse)
         {
+            await _auditService.LogAccess(nameof(GetAllDevelopersQuery));
+
             var developers = await _dbContext
                 .GetAllQuery<Developer>()
                 .Include(d => d.PrimaryLanguage)
