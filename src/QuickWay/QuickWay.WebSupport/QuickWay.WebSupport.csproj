@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="TagHelpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuickWay.Application\QuickWay.Application.csproj" />
+    <ProjectReference Include="..\QuickWay.Common\QuickWay.Common.csproj" />
+    <ProjectReference Include="..\QuickWay.Domain\QuickWay.Domain.csproj" />
+    <ProjectReference Include="..\QuickWay.Infrastructure\QuickWay.Infrastructure.csproj" />
+    <ProjectReference Include="..\QuickWay.Persistence\QuickWay.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

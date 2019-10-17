@@ -19,10 +19,10 @@ namespace IdealWay.WebSupport
             services.AddTransient<IGetAllDevelopersQuery, GetAllDevelopersQuery>();
             services.AddTransient<IGetMostUsedProgrammingLanguages, GetMostUsedProgrammingLanguages>();
             services.AddTransient<IGetAverageByGenderQuery, GetAverageByGenderQuery>();
-            services.AddTransient<IGetAverageByLevelQuery, GetAverageByLevelQuery>();
-            services.AddTransient<IAddSurveyResponseCommand, AddSurveyResponseCommand>();            
+            services.AddTransient<IGetAverageByLevelQuery, GetAverageByLevelQuery>();            
 
             //Application commands
+            services.AddTransient<IAddSurveyResponseCommand, AddSurveyResponseCommand>();            
 
             //Infrastructure services
             services.AddTransient<INotificationService, EmailNotificationService>();

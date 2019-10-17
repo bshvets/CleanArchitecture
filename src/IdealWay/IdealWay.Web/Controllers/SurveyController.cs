@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using IdealWay.Application.DeveloperUseCases.Queries.GetAllDevelopers;
+using IdealWay.Application.SurveyAnswerUseCases.Commands;
 using IdealWay.Web.Presenters;
 using IdealWay.Web.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -13,10 +15,13 @@ namespace IdealWay.Web.Controllers
     public class SurveyController : Controller
     {
         private readonly IGetAllDevelopersQuery _getAllDevelopersQuery;
+        private readonly IAddSurveyResponseCommand _addSurveyResponseCommand;
 
-        public SurveyController(IGetAllDevelopersQuery getAllDevelopersQuery)
+        public SurveyController(IGetAllDevelopersQuery getAllDevelopersQuery,
+            IAddSurveyResponseCommand addSurveyResponseCommand)
         {
             _getAllDevelopersQuery = getAllDevelopersQuery;
+            _addSurveyResponseCommand = addSurveyResponseCommand;
         }
 
         // GET: Model for answer
@@ -35,6 +40,12 @@ namespace IdealWay.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    _addSurveyResponseCommand.Handle(new AddSurveyResponseRequest()
+                    {
+                        DeveloperId = surveyAnswer.SelectedDeveloperId,
+                        Satisfied = surveyAnswer.IsSatisfied,
+                        YearSalary = surveyAnswer.AnnualSalary
+                    }, CancellationToken.None);
 
                     return RedirectToAction(nameof(Index));
                 }
@@ -45,7 +56,7 @@ namespace IdealWay.Web.Controllers
             }
             catch
             {
-                return View(surveyAnswer);
+                return View(nameof(Index), surveyAnswer);
             }
         }        
     }

@@ -29,6 +29,11 @@ namespace IdealWay.Persistence
             return this.Set<T>().AsNoTracking().AsQueryable();
         }
 
+        public void AddEntity<T>(T entity) where T : class
+        {
+            this.Set<T>().Add(entity);
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(typeof(DevSalaryDbContext).Assembly);
