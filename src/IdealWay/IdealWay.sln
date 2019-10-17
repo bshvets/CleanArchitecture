@@ -13,25 +13,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B6DC9DC9-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{84F2EAE6-A8C7-4D04-9786-EE012644FA76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Application", "IdealWay.Application\IdealWay.Application.csproj", "{ED6A4C12-B78F-48AD-9B4B-892493134AB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.Application", "IdealWay.Application\IdealWay.Application.csproj", "{ED6A4C12-B78F-48AD-9B4B-892493134AB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Domain", "IdealWay.Domain\IdealWay.Domain.csproj", "{F3BCC201-9C5B-45EE-9428-7CB91EA5FB74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.Domain", "IdealWay.Domain\IdealWay.Domain.csproj", "{F3BCC201-9C5B-45EE-9428-7CB91EA5FB74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Common", "IdealWay.Common\IdealWay.Common.csproj", "{4FFE3296-84DD-4F86-84EA-24CB8574A86D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.Common", "IdealWay.Common\IdealWay.Common.csproj", "{4FFE3296-84DD-4F86-84EA-24CB8574A86D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Infrastructure", "IdealWay.Infrastructure\IdealWay.Infrastructure.csproj", "{E57C4D53-1337-4254-8571-6B2FAE66E85D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.Infrastructure", "IdealWay.Infrastructure\IdealWay.Infrastructure.csproj", "{E57C4D53-1337-4254-8571-6B2FAE66E85D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{BD3F059E-3C62-446F-B087-0A34A8048957}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Persistence", "IdealWay.Persistence\IdealWay.Persistence.csproj", "{708B1630-C9D6-43FF-B35B-4620E0CE94AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.Persistence", "IdealWay.Persistence\IdealWay.Persistence.csproj", "{708B1630-C9D6-43FF-B35B-4620E0CE94AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.WebSupport", "IdealWay.WebSupport\IdealWay.WebSupport.csproj", "{A65B231B-9A2A-45C7-A54E-1D9BCC35893F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.WebSupport", "IdealWay.WebSupport\IdealWay.WebSupport.csproj", "{A65B231B-9A2A-45C7-A54E-1D9BCC35893F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D6DFCD70-F7FC-4684-AC7D-844F3D887FFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Application.Tests", "IdealWay.Application.Tests\IdealWay.Application.Tests.csproj", "{FD683908-DAC9-4948-B2DC-F2812913F776}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.Application.Tests", "IdealWay.Application.Tests\IdealWay.Application.Tests.csproj", "{FD683908-DAC9-4948-B2DC-F2812913F776}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Domain.Tests", "IdealWay.Domain.Tests\IdealWay.Domain.Tests.csproj", "{B381A405-44AB-4FE2-B262-2119B25930B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealWay.Domain.Tests", "IdealWay.Domain.Tests\IdealWay.Domain.Tests.csproj", "{B381A405-44AB-4FE2-B262-2119B25930B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealWay.Web.Tests", "IdealWay.Web.Tests\IdealWay.Web.Tests.csproj", "{7778272D-110A-44C4-954F-031FE0CE35D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{B381A405-44AB-4FE2-B262-2119B25930B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B381A405-44AB-4FE2-B262-2119B25930B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B381A405-44AB-4FE2-B262-2119B25930B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7778272D-110A-44C4-954F-031FE0CE35D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7778272D-110A-44C4-954F-031FE0CE35D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7778272D-110A-44C4-954F-031FE0CE35D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7778272D-110A-44C4-954F-031FE0CE35D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{A65B231B-9A2A-45C7-A54E-1D9BCC35893F} = {F5E2D88D-459A-4EF2-8352-9F7AF1ACC423}
 		{FD683908-DAC9-4948-B2DC-F2812913F776} = {D6DFCD70-F7FC-4684-AC7D-844F3D887FFB}
 		{B381A405-44AB-4FE2-B262-2119B25930B9} = {D6DFCD70-F7FC-4684-AC7D-844F3D887FFB}
+		{7778272D-110A-44C4-954F-031FE0CE35D0} = {D6DFCD70-F7FC-4684-AC7D-844F3D887FFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74131BF4-3486-4CB2-A259-9D27FA9C2B3C}

@@ -11,7 +11,7 @@ namespace IdealWay.Persistence
         public DevSalaryDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<DevSalaryDbContext>();
-            optionsBuilder.UseSqlServer("Server=DESKTOP-VCJITQ9;Database=SurveyMain;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=.;Database=SurveyMain;Trusted_Connection=True");
     
             return new DevSalaryDbContext(optionsBuilder.Options);
         }
